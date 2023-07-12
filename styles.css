@@ -1,7 +1,7 @@
 #message-box {
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     overflow-y: auto;
 }
 
@@ -9,4 +9,16 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
+    color: white;
+}
+
+.message-content {
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
 }
