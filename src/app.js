@@ -1,14 +1,13 @@
 const queryString = window.location.search;
-
 const urlParams = new URLSearchParams(queryString);
 
 const client = new tmi.Client({
-    channels: [ urlParams.get('channel') ]
+    channels: [urlParams.get('channel')]
 })
 
 client.connect();
 
-const max_messages = 100
+const max_messages = 200
 
 client.on("chat", (channel, tags, message, self) => {
 
@@ -41,13 +40,12 @@ client.on("chat", (channel, tags, message, self) => {
 
     msg.appendChild(msg_user);
     msg.appendChild(msg_content);
-    
+
     var chatbox = document.getElementById("message-box");
-    
+
     const message_count = chatbox.children.length;
     if (message_count >= max_messages) {
-    //     // chatbox.remove(chatbox.firstElementChild);
-        console.log("message limit exceeded!")
+        chatbox.firstElementChild.remove()
     }
 
     chatbox.appendChild(msg)
