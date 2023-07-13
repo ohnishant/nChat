@@ -1,5 +1,5 @@
 const client = new tmi.Client({
-    channels: [ 'ml7Support' ]
+    channels: [ 'nllsh' ]
 })
 
 client.connect();
@@ -12,7 +12,7 @@ client.on("chat", (channel, tags, message, self) => {
     const username = document.createTextNode(`${tags["display-name"]}: `);
     const user_message = document.createTextNode(`${message}`);
 
-    console.log(tags)
+    console.log(tags);
 
     var msg = document.createElement('div');
     msg.id = tags["id"];
@@ -21,7 +21,14 @@ client.on("chat", (channel, tags, message, self) => {
     // username shenanigans
     msg_user = document.createElement('span');
     msg_user.appendChild(username)
-    msg_user.style.color = tags["color"];
+
+    if (tags["color"] == null) {
+        // make all unset colored users blue
+        msg_user.style.color = "#1E90FF";
+    } else {
+        msg_user.style.color = tags["color"];
+
+    }
 
     // message content shenanigans
     msg_content = document.createElement("span");
