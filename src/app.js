@@ -1,5 +1,9 @@
+const queryString = window.location.search;
+
+const urlParams = new URLSearchParams(queryString);
+
 const client = new tmi.Client({
-    channels: [ 'nllsh' ]
+    channels: [ urlParams.get('channel') ]
 })
 
 client.connect();
@@ -42,7 +46,8 @@ client.on("chat", (channel, tags, message, self) => {
     
     const message_count = chatbox.children.length;
     if (message_count >= max_messages) {
-        // chatbox.remove(chatbox.firstElementChild);
+    //     // chatbox.remove(chatbox.firstElementChild);
+        console.log("message limit exceeded!")
     }
 
     chatbox.appendChild(msg)
