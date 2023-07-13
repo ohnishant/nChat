@@ -1,8 +1,16 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: black;
+    overflow-y: hidden;
+}
+
 #message-box {
-    /* height: 100vh; */
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
+    overflow-y: hidden;
+    position: absolute;
+    bottom: 0;
 }
 
 .message {
@@ -10,15 +18,4 @@
     font-weight: 600;
     font-size: 1.5rem;
     color: white;
-}
-
-.message-content {
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
 }
