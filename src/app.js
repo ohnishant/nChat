@@ -12,7 +12,7 @@ client.on("chat", (channel, tags, message, self) => {
     const username = document.createTextNode(`${tags["display-name"]}: `);
     const user_message = document.createTextNode(`${message}`);
 
-    console.log(tags);
+    // console.log(tags);
 
     var msg = document.createElement('div');
     msg.id = tags["id"];
@@ -51,4 +51,12 @@ client.on("chat", (channel, tags, message, self) => {
     // console.log(message_element);
     chatbox.scrollTop = chatbox.scrollHeight;
 
+})
+
+client.on("messagedeleted", (channel, username, deletedMessage, userState) => {
+    deleted_msg_id = userState["target-msg-id"];
+    deleted_msg = document.getElementById(deleted_msg_id);
+    // console.log(userState);
+    // console.log(deleted_msg)
+    deleted_msg.remove();
 })
